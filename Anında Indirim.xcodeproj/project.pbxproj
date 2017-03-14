@@ -13,6 +13,7 @@
 		092277621E0041B40058232E /* An_nda_Indirim.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 092277601E0041B40058232E /* An_nda_Indirim.xcdatamodeld */; };
 		092277641E0041B40058232E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092277631E0041B40058232E /* Assets.xcassets */; };
 		092277671E0041B40058232E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092277651E0041B40058232E /* LaunchScreen.storyboard */; };
+		096D65741E787E8100C627AB /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D65731E787E8100C627AB /* colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		092277631E0041B40058232E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		092277661E0041B40058232E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		092277681E0041B40058232E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		096D65731E787E8100C627AB /* colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				092277651E0041B40058232E /* LaunchScreen.storyboard */,
 				092277681E0041B40058232E /* Info.plist */,
 				092277601E0041B40058232E /* An_nda_Indirim.xcdatamodeld */,
+				096D65731E787E8100C627AB /* colors.swift */,
 			);
 			path = "Anında Indirim";
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				092277621E0041B40058232E /* An_nda_Indirim.xcdatamodeld in Sources */,
+				096D65741E787E8100C627AB /* colors.swift in Sources */,
 				0922775C1E0041B40058232E /* ViewController.swift in Sources */,
 				0922775A1E0041B40058232E /* AppDelegate.swift in Sources */,
 			);
@@ -303,6 +307,7 @@
 				0922776D1E0041B40058232E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

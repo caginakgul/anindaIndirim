@@ -10,14 +10,37 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lblPass: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var tfEmail: UITextField!
+    @IBOutlet weak var tfPassword: UITextField!
+    @IBOutlet weak var btLoginMail: UIButton!
+    @IBOutlet weak var btConnectFace: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setColor()
+        buttonRound()
+                // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setColor()
+    {
+        self.lblPass.textColor=clrLabelLogin
+        self.lblEmail.textColor=clrLabelLogin
+    }
+    
+    func buttonRound()
+    {
+        btLoginMail.backgroundColor = clrButtonGreen
+        btLoginMail.layer.cornerRadius = 10
+        btLoginMail.layer.borderWidth = 1
+        btLoginMail.layer.borderColor = clrButtonGreen.cgColor
     }
 
 
