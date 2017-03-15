@@ -16,11 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var btLoginMail: UIButton!
     @IBOutlet weak var btConnectFace: UIButton!
+    @IBOutlet weak var btToRegister: textButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setColor()
-        buttonRound()
+        //buttonRound()
+        
                 // Do any additional setup after loading the view, typically from a nib.
     }
 

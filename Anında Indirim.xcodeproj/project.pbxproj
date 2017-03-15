@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0904984A1E79DE37003AA967 /* textButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090498491E79DE37003AA967 /* textButton.swift */; };
+		0904984D1E79E1F7003AA967 /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904984C1E79E1F7003AA967 /* textField.swift */; };
 		0922775A1E0041B40058232E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092277591E0041B40058232E /* AppDelegate.swift */; };
 		0922775C1E0041B40058232E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922775B1E0041B40058232E /* ViewController.swift */; };
 		0922775F1E0041B40058232E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0922775D1E0041B40058232E /* Main.storyboard */; };
 		092277621E0041B40058232E /* An_nda_Indirim.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 092277601E0041B40058232E /* An_nda_Indirim.xcdatamodeld */; };
 		092277641E0041B40058232E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092277631E0041B40058232E /* Assets.xcassets */; };
 		092277671E0041B40058232E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092277651E0041B40058232E /* LaunchScreen.storyboard */; };
+		095721BD1E793EFD0064C647 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095721BC1E793EFD0064C647 /* roundButton.swift */; };
 		096D65741E787E8100C627AB /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D65731E787E8100C627AB /* colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090498491E79DE37003AA967 /* textButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textButton.swift; sourceTree = "<group>"; };
+		0904984C1E79E1F7003AA967 /* textField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
 		092277561E0041B30058232E /* Anında Indirim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anında Indirim.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		092277591E0041B40058232E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0922775B1E0041B40058232E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +30,7 @@
 		092277631E0041B40058232E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		092277661E0041B40058232E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		092277681E0041B40058232E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		095721BC1E793EFD0064C647 /* roundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
 		096D65731E787E8100C627AB /* colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0904984B1E79E1B7003AA967 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				0904984C1E79E1F7003AA967 /* textField.swift */,
+			);
+			name = TextFields;
+			sourceTree = "<group>";
+		};
 		0922774D1E0041B30058232E = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +72,7 @@
 		092277581E0041B30058232E /* Anında Indirim */ = {
 			isa = PBXGroup;
 			children = (
+				095721BA1E793ED30064C647 /* UI */,
 				092277591E0041B40058232E /* AppDelegate.swift */,
 				0922775B1E0041B40058232E /* ViewController.swift */,
 				0922775D1E0041B40058232E /* Main.storyboard */,
@@ -68,6 +83,24 @@
 				096D65731E787E8100C627AB /* colors.swift */,
 			);
 			path = "Anında Indirim";
+			sourceTree = "<group>";
+		};
+		095721BA1E793ED30064C647 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0904984B1E79E1B7003AA967 /* TextFields */,
+				095721BB1E793ED80064C647 /* Buttons */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		095721BB1E793ED80064C647 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				095721BC1E793EFD0064C647 /* roundButton.swift */,
+				090498491E79DE37003AA967 /* textButton.swift */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				092277621E0041B40058232E /* An_nda_Indirim.xcdatamodeld in Sources */,
+				095721BD1E793EFD0064C647 /* roundButton.swift in Sources */,
+				0904984D1E79E1F7003AA967 /* textField.swift in Sources */,
+				0904984A1E79DE37003AA967 /* textButton.swift in Sources */,
 				096D65741E787E8100C627AB /* colors.swift in Sources */,
 				0922775C1E0041B40058232E /* ViewController.swift in Sources */,
 				0922775A1E0041B40058232E /* AppDelegate.swift in Sources */,
