@@ -22,7 +22,11 @@ class textField: UITextField {
         super.layoutSubviews()
         self.layer.cornerRadius = 15.0
         self.layer.borderWidth = 2.0
-        //self.layer.borderColor = clrTextFieldBorder
+        self.layer.borderColor = clrTextFieldBorder.cgColor
+       // self.leftViewMode = UITextFieldViewMode.always
+       // self.leftView = UIImageView(image: UIImage(named: "Open-Lock_24px"))
+        
+        
     }
 
 
