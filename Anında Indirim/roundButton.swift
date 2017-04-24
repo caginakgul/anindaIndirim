@@ -9,7 +9,7 @@
 import UIKit
 
 class roundButton: UIButton {
-    @IBInspectable var cornerRadius:CGFloat = 10.0
+    @IBInspectable var cornerRadius:CGFloat = 15.0
     @IBInspectable var bgColor:UIColor = clrButtonGreen
     @IBInspectable var borderColor:UIColor = clrButtonGreen
 

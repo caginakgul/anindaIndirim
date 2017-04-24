@@ -14,3 +14,4 @@ import Foundation
     let clrGrayTextButton=UIColor(red:0.35, green:0.35, blue:0.35, alpha:1.0)
     let clrTextFieldBorder=UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
     let clrLabel=UIColor(red:0.33, green:0.33, blue:0.33, alpha:1.0)
+    let clrFacebookBlue=UIColor(red:0.22, green:0.37, blue:0.60, alpha:1.0)

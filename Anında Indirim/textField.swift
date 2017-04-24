@@ -9,24 +9,28 @@
 import UIKit
 
 class textField: UITextField {
+    
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.cornerRadius = 15.0
         self.layer.borderWidth = 2.0
         self.layer.borderColor = clrTextFieldBorder.cgColor
-       // self.leftViewMode = UITextFieldViewMode.always
-       // self.leftView = UIImageView(image: UIImage(named: "Open-Lock_24px"))
+       // iconTextField()
+              
         
         
+    }
+ 
+       
+    func iconTextField()
+    {
+        self.leftViewMode = UITextFieldViewMode.always
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let image = UIImage(named: "Open-Lock_24px")
+        imageView.image = image
+        self.leftView = imageView
     }
 
 
