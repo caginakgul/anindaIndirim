@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Crashlytics
 
 class ViewController: UIViewController {
     
@@ -28,6 +29,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         //firebase init
         FIRApp.configure()
         
@@ -45,7 +48,20 @@ class ViewController: UIViewController {
         btLoginMail.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
         btConnectFace.addTarget(self, action: #selector(self.fbLogin), for: .touchUpInside)
         btToRegister.addTarget(self, action: #selector(self.pressButtonToRegister(button:)), for: .touchUpInside)
+        
+        //force crash sample Crashlytics
+      /*  let button = UIButton(type: .roundedRect)
+        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+        button.setTitle("Crash", for: [])
+        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+        view.addSubview(button) */
+
     }
+    
+    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

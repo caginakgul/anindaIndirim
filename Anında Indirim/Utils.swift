@@ -57,5 +57,76 @@ class Utils{
         imageView.layer.cornerRadius = imageView.frame.size.width/2
         imageView.clipsToBounds = true
     }
-}
+    
+    func convertToTime(timeString: String)->Date
+    {
+        var interval:Double = 0
+        
+        let parts = timeString.components(separatedBy: ":")
+        for (index, part) in parts.reversed().enumerated() {
+            interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
+        }
+
+        var date = NSDate(timeIntervalSince1970: interval)
+        print("Begin Time: ",date)
+        return date as Date
+    }
+    
+    func getCurrentTime()->Date
+    {
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        
+        let today = "\(year):\(month):\(day): \(hour):\(minutes):\(seconds)"
+        
+        
+       return date
+      /*  let now = Date()
+        print("Now: ",now)
+        return now */
+    }
+    
+    func daysBetweenDates(startDate: Date, endDate: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.day], from: endDate, to: startDate)
+        return components.day!
+    }
+    
+    func hours(startDate: Date, endDate: Date) -> Int {
+        return Calendar.current.dateComponents([.hour], from: endDate, to: startDate).hour ?? 0
+    }
+    
+    func calculateUpdatedPrice(saleRate: String, oldPrice: String)->String
+    {
+         print("sale rate: ",saleRate)
+         print("old price : ",oldPrice)
+        
+        var updatedPrice = 0.0
+        let oldPriceDouble = Double(oldPrice ) ?? 0.0
+        let saleRateDouble = Double(saleRate ) ?? 0.0
+        updatedPrice = oldPriceDouble*saleRateDouble
+        
+        print("Çarpım: ",updatedPrice)
+        
+        updatedPrice = updatedPrice/100
+        
+        print("kaç tl indirim yapılcak: ",oldPrice)
+        
+        updatedPrice = oldPriceDouble - updatedPrice
+        
+          print("yeni fiyat: ",oldPrice)
+        let newPriceStr:String = String(format:"%.2f", updatedPrice)
+        print("yeni fiyat: ",newPriceStr)
+        return newPriceStr
+    }
+
+    
+  }
 

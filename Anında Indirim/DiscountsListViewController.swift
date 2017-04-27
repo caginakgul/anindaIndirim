@@ -16,14 +16,14 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     //to read data from db
     var ref: FIRDatabaseReference!
     
-    var kafe=[String]() //silebilirsin sistemi oturttuktan sonra
     var shopList = Array<Shop>()
     
     var discountsList = [Discount]()
     var shopArray = [Shop]()
-
+    var saleArray = [SaleDisplay]()
     
-    let list=["hodor","hodor2","hodor3"] //silebilirsin sistemi oturttuktan sonra
+
+
 
     @IBOutlet weak var tableVDiscountList: UITableView!
     
@@ -37,8 +37,6 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
         //for reading data from db
         ref = FIRDatabase.database().reference()
         readSalesFromDB();
-
-        // Do any additional setup after loading the view.
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,36 +45,55 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.shopArray.count
-        
+       // return self.shopArray.count
+        return self.saleArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DiscountListTableViewCell
         
-        cell.labelDummyData.text = self.shopArray[indexPath.row].city
+        
+        //veriler listeye işleniyor. dummydata mağaza adı
+        
+     //   cell.labelDummyData.text = self.shopArray[indexPath.row].name
+     //   cell.lblProductName.text=self.shopArray[indexPath.row].product
+        
+        cell.labelDummyData.text = self.saleArray[indexPath.row].name
+        cell.lblProductName.text=self.saleArray[indexPath.row].product
+        cell.lblOldPrice.text=self.saleArray[indexPath.row].product_price_old
+        
+        print("Hacı: ",self.saleArray[indexPath.row])
+        
+       let updatedPrice=Utils.sharedInstance.calculateUpdatedPrice(saleRate: self.saleArray[indexPath.row].sale_rate
+            , oldPrice: self.saleArray[indexPath.row].product_price_old)
+        cell.lblNewPrice.text=updatedPrice
+        
         return cell
     }
   
     func readSalesFromDB()
     {
 
-        // Get shop value
-        let objModel = Shop()
+        // arrayliste eklenecek olan obje ayarlanıyor
+        let objModel2=SaleDisplay()
         
         ref?.child("shops").observe(.value, with: { (snapshot) in
             for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 if let value = rest.value as? NSDictionary
                 {
-                    objModel.name = value["name"] as? String ?? ""
-                    objModel.city = value["city"] as? String ?? ""
-                    objModel.lng = value["lng"] as? String ?? ""
-                    objModel.lat = value["lat"] as? String ?? ""
-                    objModel.category = value["category"] as? String ?? ""
-                    objModel.id = value["id"] as? Int ?? 0
+                    objModel2.name = value["name"] as? String ?? ""
+                  
+                    
+
+                    objModel2.city = value["city"] as? String ?? ""
+                    objModel2.lng = value["lng"] as? String ?? ""
+                    objModel2.lat = value["lat"] as? String ?? ""
+                    objModel2.category = value["category"] as? String ?? ""
+                    objModel2.id = value["id"] as? Int ?? 0
+
                     
                     //lc waikikinin içindeki discountlara ulaşmaya çalışıyorsun
-                    if let discounts = value["discounts"] as! NSDictionary?{ //burda patlıyor
+                    if let discounts = value["discounts"] as! NSDictionary?{
                         
                         var discountArray = [Discount]()
                        // var discountObj:Discount=Discount()
@@ -90,11 +107,28 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                                 discountObj.product = product
                                 discountObj.product_price_old = product_price_old
                                 discountObj.begin_time = begin_time
-                                discountArray.append(discountObj)
+                                
+                                objModel2.sale_rate = sale_rate
+                                objModel2.product = product
+                                objModel2.product_price_old = product_price_old
+                                objModel2.begin_time = begin_time
+
+                                
+                                //kampanya hala geçerli mi? yayın tarihinden itibaren 4 saat oldu mu?
+                                
+                                let btwHours = Utils.sharedInstance.hours(startDate: Utils.sharedInstance.getCurrentTime(), endDate: Utils.sharedInstance.convertToTime(timeString: begin_time))
+                                
+                                //ilan son 4 saat içinde yayınlanmışsa display edilecekler listesine ekle
+                                if btwHours<5
+                                {
+                                                                      
+                                    discountArray.append(discountObj)
+                                    self.saleArray.append(objModel2)
+
+                                }
+                            
                             }
                         }
-                        objModel.array = discountArray
-                        self.shopArray.append(objModel)
                     }
                 }
             }

@@ -27,6 +27,7 @@
 		096DEA8B1E85103C0087B041 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096DEA8A1E85103C0087B041 /* Constants.swift */; };
 		0996FA621E96C91100E16A8A /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996FA611E96C91100E16A8A /* ImageTextField.swift */; };
 		0996FA651E96DA9A00E16A8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996FA641E96DA9A00E16A8A /* User.swift */; };
+		09A39D251EB12F9B00B7C9CA /* SaleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */; };
 		09D4BC0D1EA799610033283D /* DiscountsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BC0C1EA799610033283D /* DiscountsListViewController.swift */; };
 		09D4BC0F1EA79AFB0033283D /* DiscountListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BC0E1EA79AFB0033283D /* DiscountListTableViewCell.swift */; };
 		D1D0059698F5E6DE3BBFE1BF /* Pods_An_nda_Indirim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC9E3F5A153959A1408119 /* Pods_An_nda_Indirim.framework */; };
@@ -55,6 +56,7 @@
 		096DEA8A1E85103C0087B041 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0996FA611E96C91100E16A8A /* ImageTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 		0996FA641E96DA9A00E16A8A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDisplay.swift; sourceTree = "<group>"; };
 		09D4BC0C1EA799610033283D /* DiscountsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountsListViewController.swift; sourceTree = "<group>"; };
 		09D4BC0E1EA79AFB0033283D /* DiscountListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountListTableViewCell.swift; sourceTree = "<group>"; };
 		1B8BA47FE05CA255D72ECA61 /* Pods-Anında Indirim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anında Indirim.release.xcconfig"; path = "Pods/Target Support Files/Pods-Anında Indirim/Pods-Anında Indirim.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				0996FA641E96DA9A00E16A8A /* User.swift */,
 				09202C1F1EA6A26900CA36D1 /* Shop.swift */,
 				09202C211EA6A66E00CA36D1 /* Discount.swift */,
+				09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */,
 			);
 			name = modal;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				092277541E0041B30058232E /* Resources */,
 				EF5FC7235AF9048E296FBB51 /* [CP] Embed Pods Frameworks */,
 				4A78CF1CFBCD977FAAD2D7B1 /* [CP] Copy Pods Resources */,
+				099C9EDA1EB273BC00309DA5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -222,6 +226,7 @@
 				TargetAttributes = {
 					092277551E0041B30058232E = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ETKHACYNU8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -259,6 +264,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		099C9EDA1EB273BC00309DA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 138f82fb3b1d3d9dab7539550b89f1139282a6f8 1892bf5c4ac00a3283f67952cb8c4790aea895b73e70a2245361acc878c03066\n";
+		};
 		4A78CF1CFBCD977FAAD2D7B1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,6 +338,7 @@
 				092277621E0041B40058232E /* An_nda_Indirim.xcdatamodeld in Sources */,
 				095721BD1E793EFD0064C647 /* roundButton.swift in Sources */,
 				09D4BC0F1EA79AFB0033283D /* DiscountListTableViewCell.swift in Sources */,
+				09A39D251EB12F9B00B7C9CA /* SaleDisplay.swift in Sources */,
 				090C3D091E7B100F00230382 /* labels.swift in Sources */,
 				0904984D1E79E1F7003AA967 /* textField.swift in Sources */,
 				096D6AD01E84678B0086D479 /* Utils.swift in Sources */,
@@ -452,6 +471,7 @@
 			baseConfigurationReference = 4B19CE8D4A627BB949835ECA /* Pods-Anında Indirim.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ETKHACYNU8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher\"",
@@ -475,6 +495,7 @@
 			baseConfigurationReference = 1B8BA47FE05CA255D72ECA61 /* Pods-Anında Indirim.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ETKHACYNU8;
 				INFOPLIST_FILE = "Anında Indirim/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aninda.indirim;

@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Facebook Login
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
+              Fabric.with([Crashlytics.self])
         return true
     }
     //for facebook login

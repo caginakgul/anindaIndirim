@@ -11,7 +11,9 @@ import UIKit
 class DiscountListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelDummyData: UILabel!
-    
+    @IBOutlet weak var lblProductName: UILabel!
+    @IBOutlet weak var lblOldPrice: labels!
+    @IBOutlet weak var lblNewPrice: labels!
     
     override func awakeFromNib() {
         super.awakeFromNib()
