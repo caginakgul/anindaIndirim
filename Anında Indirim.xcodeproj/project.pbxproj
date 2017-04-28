@@ -27,6 +27,7 @@
 		096DEA8B1E85103C0087B041 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096DEA8A1E85103C0087B041 /* Constants.swift */; };
 		0996FA621E96C91100E16A8A /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996FA611E96C91100E16A8A /* ImageTextField.swift */; };
 		0996FA651E96DA9A00E16A8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996FA641E96DA9A00E16A8A /* User.swift */; };
+		099C9EDC1EB27E9F00309DA5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 099C9EDB1EB27E9F00309DA5 /* CoreLocation.framework */; };
 		09A39D251EB12F9B00B7C9CA /* SaleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */; };
 		09D4BC0D1EA799610033283D /* DiscountsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BC0C1EA799610033283D /* DiscountsListViewController.swift */; };
 		09D4BC0F1EA79AFB0033283D /* DiscountListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BC0E1EA79AFB0033283D /* DiscountListTableViewCell.swift */; };
@@ -56,6 +57,7 @@
 		096DEA8A1E85103C0087B041 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0996FA611E96C91100E16A8A /* ImageTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 		0996FA641E96DA9A00E16A8A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		099C9EDB1EB27E9F00309DA5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDisplay.swift; sourceTree = "<group>"; };
 		09D4BC0C1EA799610033283D /* DiscountsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountsListViewController.swift; sourceTree = "<group>"; };
 		09D4BC0E1EA79AFB0033283D /* DiscountListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountListTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				099C9EDC1EB27E9F00309DA5 /* CoreLocation.framework in Frameworks */,
 				D1D0059698F5E6DE3BBFE1BF /* Pods_An_nda_Indirim.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +188,7 @@
 		AE4D637BE91494BA1C15A2B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				099C9EDB1EB27E9F00309DA5 /* CoreLocation.framework */,
 				52FC9E3F5A153959A1408119 /* Pods_An_nda_Indirim.framework */,
 			);
 			name = Frameworks;

@@ -20,6 +20,7 @@ class MyProfileViewController: UIViewController
     @IBOutlet weak var lblUserName: labels!
     //delete it later
     @IBOutlet weak var btLogout: UIButton!
+    @IBOutlet weak var btToSale: UIButton!
     
     
     
@@ -28,6 +29,8 @@ class MyProfileViewController: UIViewController
         
         //logout button click event delete it later
          btLogout.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
+        //display sale list events
+          btToSale.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
         
         
         getUserInfoFirebase()
@@ -36,6 +39,12 @@ class MyProfileViewController: UIViewController
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) // No need for semicolon
+        
+        
     }
     
     func getUserInfoFirebase()
@@ -52,12 +61,18 @@ class MyProfileViewController: UIViewController
             ivUserPic.sd_setImage(with: picUrl)
             
             //make imageView circle
-            Utils.sharedInstance.circleImageView(imageView: ivUserPic)
+      //      Utils.sharedInstance.circleImageView(imageView: ivUserPic)
             
-            //set facebook name
+            self.ivUserPic.layer.borderWidth=1.0
+            self.ivUserPic.layer.masksToBounds = false
+            self.ivUserPic.layer.borderColor = clrFacebookBlue.cgColor
+            self.ivUserPic.layer.cornerRadius = self.ivUserPic.frame.size.height/2
+            self.ivUserPic.clipsToBounds = true
+            
+
+                    //set facebook name
             lblUserName.text=FIRAuth.auth()?.currentUser?.displayName
         }
-        
             //if email login
         else
         {
@@ -70,6 +85,13 @@ class MyProfileViewController: UIViewController
         //logout kill session firebase
         try! FIRAuth.auth()!.signOut()
         Utils.sharedInstance.cleanSession()
+    }
+    
+    func pressButtonToTheSale(button: UIButton) {
+        //perform segue
+        self.performSegue(withIdentifier: "segueToTheSale", sender: self)
+
+        
     }
     
     //to read data from db

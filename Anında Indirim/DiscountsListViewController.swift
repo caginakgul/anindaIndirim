@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
-class DiscountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DiscountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate {
     
     
     
@@ -22,6 +23,12 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     var shopArray = [Shop]()
     var saleArray = [SaleDisplay]()
     
+    var userLat = Double()
+    var userLng = Double()
+    
+    //user location
+     let locationManager = CLLocationManager()
+    
 
 
 
@@ -29,14 +36,43 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FIRApp.configure()
+        
+    
+     //   FIRApp.configure()
         
         //self.tableVDiscountList.delegate=self
         //self.tableVDiscountList.dataSource=self
         
+        //userlocation
+        self.locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled()
+        {
+            locationManager.delegate=self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+            print("LocationManager: ",locationManager)
+            
+        }
+        
+        
         //for reading data from db
         ref = FIRDatabase.database().reference()
         readSalesFromDB();
+    }
+    
+    //kullanıcının lat ve long değererini okuma
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        print("LocationThing2")
+
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        self.userLat = locValue.latitude
+        self.userLng = locValue.longitude
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    func locationManager(_ manager: CLLocationManager!,didFailWithError error:Error)
+    {
+        print("Error")
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,8 +119,6 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                 {
                     objModel2.name = value["name"] as? String ?? ""
                   
-                    
-
                     objModel2.city = value["city"] as? String ?? ""
                     objModel2.lng = value["lng"] as? String ?? ""
                     objModel2.lat = value["lat"] as? String ?? ""
@@ -121,10 +155,19 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                                 //ilan son 4 saat içinde yayınlanmışsa display edilecekler listesine ekle
                                 if btwHours<5
                                 {
-                                                                      
-                                    discountArray.append(discountObj)
-                                    self.saleArray.append(objModel2)
-
+                                    //eğer dükkan ile kullanıcı arasında 1km'den az mesafe var ise listeye ekle
+                                    let userLatDbl = Double("38.455718")
+                                    let userLngDbl = Double("27.202106")
+                                    
+                                    let distanceInMeter = Utils.sharedInstance.calcDistanceBtwUserAndShop(userLat: userLatDbl!, userLong: userLngDbl!, shopLat: objModel2.lat, shopLng: objModel2.lng)
+                                    print("distance: ",distanceInMeter)
+                                    if distanceInMeter < 1001
+                                    {
+                                        discountArray.append(discountObj)
+                                        self.saleArray.append(objModel2)
+                                    }
+                                    
+                                    
                                 }
                             
                             }

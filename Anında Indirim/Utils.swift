@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class Utils{
     
@@ -126,7 +127,25 @@ class Utils{
         print("yeni fiyat: ",newPriceStr)
         return newPriceStr
     }
+    
+    func calcDistanceBtwUserAndShop(userLat: Double, userLong: Double, shopLat: String, shopLng: String) -> Int
+    {
+        let shopLatDbl = Double(shopLat)
+        let shopLngDbl = Double(shopLng)
+        
+        let coordinateUser = CLLocation(latitude: userLat, longitude: userLong)
+        let coordinateShop = CLLocation(latitude: shopLatDbl!, longitude: shopLngDbl!)
+        
+        let distanceInMeters = coordinateUser.distance(from: coordinateShop) // result is in meters
+        return Int(distanceInMeters)
+    }
+    
+    func convertDouble(prmStr: String)->Double
+    {
+        let dblValue = Double(prmStr)
 
+        return dblValue!
+    }
     
   }
 

@@ -98,8 +98,8 @@ class RegisterViewController: UIViewController {
                 
                 print("MailLogReg:"+self.tfEmailReg.text!)
 
-                //perform segue
-                self.performSegue(withIdentifier: "segueRegisterToMain", sender: self)
+               //perform segue
+                self.performSegue(withIdentifier: "segueRegisterToMain", sender: self) 
             }
            
         }

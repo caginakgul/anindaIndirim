@@ -29,11 +29,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        //firebase init
-        FIRApp.configure()
-        
+         FIRApp.configure()
+  
         // Firebase Database Referance
         ref = FIRDatabase.database().reference()
         

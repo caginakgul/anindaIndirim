@@ -241,7 +241,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="lblUserNameProfile" text="Ayşe Sertkaya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl1-8y-lk7" customClass="labels" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="100" y="151" width="108" height="21"/>
+                                <rect key="frame" x="100" y="151" width="108" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -252,11 +252,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="logout"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="btnToSales" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBe-9A-xGM">
+                                <rect key="frame" x="112" y="335" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Display Sale"/>
+                                <connections>
+                                    <segue destination="2v6-Vy-rql" kind="show" identifier="segueToTheSale" id="GtX-Sp-kGl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="btLogout" destination="K2Y-9b-dRC" id="lB4-Mo-YyQ"/>
+                        <outlet property="btToSale" destination="uBe-9A-xGM" id="KMb-gA-dVa"/>
                         <outlet property="ivUserPic" destination="RtN-tX-VK1" id="peo-ma-Myt"/>
                         <outlet property="lblUserName" destination="hl1-8y-lk7" id="qVl-k2-b0Z"/>
                     </connections>
@@ -345,6 +354,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJl-Wg-EgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="300" y="1239.0845070422536"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="J8m-My-iZt">
+            <objects>
+                <viewController id="ks3-bq-GPm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O7X-XE-dc1"/>
+                        <viewControllerLayoutGuide type="bottom" id="IGw-6v-Tnm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2dK-k0-LTq" customClass="SaleDiscountViewContoller">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="51L-Ie-Ow5">
+                                <rect key="frame" x="-4" y="28" width="324" height="209"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lyI-Ik-6CW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1261.875" y="1408.0985915492959"/>
         </scene>
     </scenes>
     <resources>
