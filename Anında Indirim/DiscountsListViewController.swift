@@ -23,13 +23,12 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     var shopArray = [Shop]()
     var saleArray = [SaleDisplay]()
     
-    var userLat = Double()
-    var userLng = Double()
+    var userLat = 0.0
+    var userLng = 0.0
     
     //user location
      let locationManager = CLLocationManager()
-    
-
+    var currentLocation: CLLocation!
 
 
     @IBOutlet weak var tableVDiscountList: UITableView!
@@ -44,17 +43,12 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
         //self.tableVDiscountList.dataSource=self
         
         //userlocation
-        self.locationManager.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled()
-        {
-            locationManager.delegate=self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-            print("LocationManager: ",locationManager)
-            
-        }
-        
+            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+                currentLocation = locationManager.location
+                userLat = currentLocation.coordinate.latitude
+                userLng = currentLocation.coordinate.longitude
+            }
         
         //for reading data from db
         ref = FIRDatabase.database().reference()
@@ -62,18 +56,18 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     //kullanıcının lat ve long değererini okuma
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+ /*   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         print("LocationThing2")
 
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.userLat = locValue.latitude
         self.userLng = locValue.longitude
         print("locations = \(locValue.latitude) \(locValue.longitude)")
-    }
-    func locationManager(_ manager: CLLocationManager!,didFailWithError error:Error)
+    } */
+ /*   func locationManager(_ manager: CLLocationManager!,didFailWithError error:Error)
     {
         print("Error")
-    }
+    } */
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -156,10 +150,8 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                                 if btwHours<5
                                 {
                                     //eğer dükkan ile kullanıcı arasında 1km'den az mesafe var ise listeye ekle
-                                    let userLatDbl = Double("38.455718")
-                                    let userLngDbl = Double("27.202106")
-                                    
-                                    let distanceInMeter = Utils.sharedInstance.calcDistanceBtwUserAndShop(userLat: userLatDbl!, userLong: userLngDbl!, shopLat: objModel2.lat, shopLng: objModel2.lng)
+                                                                      
+                                    let distanceInMeter = Utils.sharedInstance.calcDistanceBtwUserAndShop(userLat: self.userLat, userLong: self.userLng, shopLat: objModel2.lat, shopLng: objModel2.lng)
                                     print("distance: ",distanceInMeter)
                                     if distanceInMeter < 1001
                                     {
