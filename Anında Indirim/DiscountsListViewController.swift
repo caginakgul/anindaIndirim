@@ -36,13 +36,7 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-     //   FIRApp.configure()
-        
-        //self.tableVDiscountList.delegate=self
-        //self.tableVDiscountList.dataSource=self
-        
-        //userlocation
+    //userlocation
             if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
                 CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
                 currentLocation = locationManager.location
@@ -55,20 +49,6 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
         readSalesFromDB();
     }
     
-    //kullanıcının lat ve long değererini okuma
- /*   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        print("LocationThing2")
-
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        self.userLat = locValue.latitude
-        self.userLng = locValue.longitude
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-    } */
- /*   func locationManager(_ manager: CLLocationManager!,didFailWithError error:Error)
-    {
-        print("Error")
-    } */
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
         
@@ -82,17 +62,12 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DiscountListTableViewCell
         
-        
         //veriler listeye işleniyor. dummydata mağaza adı
-        
-     //   cell.labelDummyData.text = self.shopArray[indexPath.row].name
-     //   cell.lblProductName.text=self.shopArray[indexPath.row].product
-        
+
         cell.labelDummyData.text = self.saleArray[indexPath.row].name
         cell.lblProductName.text=self.saleArray[indexPath.row].product
         cell.lblOldPrice.text=self.saleArray[indexPath.row].product_price_old
         
-        print("Hacı: ",self.saleArray[indexPath.row])
         
        let updatedPrice=Utils.sharedInstance.calculateUpdatedPrice(saleRate: self.saleArray[indexPath.row].sale_rate
             , oldPrice: self.saleArray[indexPath.row].product_price_old)
@@ -100,6 +75,8 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
         
         return cell
     }
+    
+    
   
     func readSalesFromDB()
     {
@@ -111,8 +88,8 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
             for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 if let value = rest.value as? NSDictionary
                 {
+                   
                     objModel2.name = value["name"] as? String ?? ""
-                  
                     objModel2.city = value["city"] as? String ?? ""
                     objModel2.lng = value["lng"] as? String ?? ""
                     objModel2.lat = value["lat"] as? String ?? ""
@@ -152,24 +129,24 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                                     //eğer dükkan ile kullanıcı arasında 1km'den az mesafe var ise listeye ekle
                                                                       
                                     let distanceInMeter = Utils.sharedInstance.calcDistanceBtwUserAndShop(userLat: self.userLat, userLong: self.userLng, shopLat: objModel2.lat, shopLng: objModel2.lng)
-                                    print("distance: ",distanceInMeter)
                                     if distanceInMeter < 1001
                                     {
                                         discountArray.append(discountObj)
+                                        print("objmodel2",objModel2.product)
                                         self.saleArray.append(objModel2)
                                     }
-                                    
-                                    
                                 }
                             
                             }
                         }
                     }
+                    
                 }
             }
             self.tableVDiscountList.dataSource = self
             self.tableVDiscountList.delegate = self
             self.tableVDiscountList.reloadData()
+            
         })
     }
 }

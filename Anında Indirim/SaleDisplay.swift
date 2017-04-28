@@ -19,4 +19,18 @@ var product_price_old : String!
 var sale_rate : String!
 var begin_time : String!
 var id : Int!
+    
+func clear()
+{
+    name=""
+    city=""
+    lng=""
+    lat=""
+    category=""
+    product=""
+    product_price_old=""
+    sale_rate=""
+    begin_time=""
+    id=nil
+}
 }

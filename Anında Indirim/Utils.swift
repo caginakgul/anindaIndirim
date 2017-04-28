@@ -106,25 +106,18 @@ class Utils{
     
     func calculateUpdatedPrice(saleRate: String, oldPrice: String)->String
     {
-         print("sale rate: ",saleRate)
-         print("old price : ",oldPrice)
         
         var updatedPrice = 0.0
         let oldPriceDouble = Double(oldPrice ) ?? 0.0
         let saleRateDouble = Double(saleRate ) ?? 0.0
         updatedPrice = oldPriceDouble*saleRateDouble
-        
-        print("Çarpım: ",updatedPrice)
-        
+    
         updatedPrice = updatedPrice/100
         
-        print("kaç tl indirim yapılcak: ",oldPrice)
         
         updatedPrice = oldPriceDouble - updatedPrice
         
-          print("yeni fiyat: ",oldPrice)
         let newPriceStr:String = String(format:"%.2f", updatedPrice)
-        print("yeni fiyat: ",newPriceStr)
         return newPriceStr
     }
     
