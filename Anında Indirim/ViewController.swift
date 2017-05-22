@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         btToRegister.addTarget(self, action: #selector(self.pressButtonToRegister(button:)), for: .touchUpInside)
         
         //force crash sample Crashlytics
-      /*  let button = UIButton(type: .roundedRect)
+        /*  let button = UIButton(type: .roundedRect)
         button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
         button.setTitle("Crash", for: [])
         button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)

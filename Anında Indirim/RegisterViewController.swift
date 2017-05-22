@@ -104,9 +104,7 @@ class RegisterViewController: UIViewController {
            
         }
     }
-    
-          
-    
+  
 
     /*
     // MARK: - Navigation

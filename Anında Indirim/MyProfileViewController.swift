@@ -12,28 +12,30 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import SDWebImage
 
+//todo : veriyi table'a yazdırmayı çöz.
 
-class MyProfileViewController: UIViewController
+
+class MyProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource
 {
-
+    var ref: FIRDatabaseReference!
     @IBOutlet weak var ivUserPic: UIImageView!
     @IBOutlet weak var lblUserName: labels!
-    //delete it later
-    @IBOutlet weak var btLogout: UIButton!
-    @IBOutlet weak var btToSale: UIButton!
     
-    
+    @IBOutlet weak var btnLogout: UIButton!
+    @IBOutlet weak var tableOldShopping: UITableView!
+    //var oldShoppingArray = [OldShopping]()
+    var oldShoppingArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //logout button click event delete it later
-         btLogout.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
-        //display sale list events
-          btToSale.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
+        btnLogout.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
         
+        ref = FIRDatabase.database().reference()
         
         getUserInfoFirebase()
+        readOldShoppingFromDB()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,17 +87,71 @@ class MyProfileViewController: UIViewController
         //logout kill session firebase
         try! FIRAuth.auth()!.signOut()
         Utils.sharedInstance.cleanSession()
+        
+         self.performSegue(withIdentifier: "segueLogout", sender: self) 
     }
     
-    func pressButtonToTheSale(button: UIButton) {
-        //perform segue
-        self.performSegue(withIdentifier: "segueToTheSale", sender: self)
-
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
         
     }
     
-    //to read data from db
-}
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // return self.shopArray.count
+        return self.oldShoppingArray.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OldShoppingTableViewCell
+        
+        //veriler listeye işleniyor. dummydata mağaza adı
+        
+        let shopping = self.oldShoppingArray[indexPath.row] as! OldShopping
+        
+        cell.lblProduct.text = shopping.product
+        
+        return cell
+    }
+    
+    
+    
+    func readOldShoppingFromDB()
+    {
+        
+        // arrayliste eklenecek olan obje ayarlanıyor
+        let userid = UserDefaults.standard.string(forKey: userIdKey)!
+   
+        ref?.child("shopping").child(userid).observe(.value, with: { (snapshot) in
+                for rest in snapshot.children.allObjects as! [FIRDataSnapshot]
+                {
+                    let objModel=OldShopping()
+                    if let value = rest.value as? NSDictionary
+                    {
+                        //objModel.product=value["product"] as? String ?? ""
+                        
+                        guard let product_name = value.object(forKey: "product") else{
+                            return
+                        }
+                        print(product_name)
+                        
+                        objModel.product = product_name as! String
+                        
+                        //self.oldShoppingArray.append(objModel)
+                        self.oldShoppingArray.add(objModel)
+                    }
+                }
+            self.tableOldShopping.dataSource=self
+            self.tableOldShopping.delegate = self
+            self.tableOldShopping.reloadData()
+        })
+    }
+    
+    func buttonRound()
+    {
+        btnLogout.backgroundColor = clrButtonGreen
+        btnLogout.layer.cornerRadius = 10
+        btnLogout.layer.borderWidth = 1
+        btnLogout.layer.borderColor = clrButtonGreen.cgColor
+    }
 
-
+}

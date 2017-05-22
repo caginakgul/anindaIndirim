@@ -29,8 +29,11 @@
 		0996FA651E96DA9A00E16A8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996FA641E96DA9A00E16A8A /* User.swift */; };
 		099C9EDC1EB27E9F00309DA5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 099C9EDB1EB27E9F00309DA5 /* CoreLocation.framework */; };
 		09A39D251EB12F9B00B7C9CA /* SaleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */; };
+		09B9E1891EBA44490059EC09 /* OldShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B9E1881EBA44490059EC09 /* OldShoppingTableViewCell.swift */; };
+		09B9E18B1EBA46180059EC09 /* OldShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B9E18A1EBA46180059EC09 /* OldShopping.swift */; };
 		09D4BC0D1EA799610033283D /* DiscountsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BC0C1EA799610033283D /* DiscountsListViewController.swift */; };
 		09D4BC0F1EA79AFB0033283D /* DiscountListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BC0E1EA79AFB0033283D /* DiscountListTableViewCell.swift */; };
+		09EFAFC11EC106D2006389C8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFAFC01EC106D2006389C8 /* MapViewController.swift */; };
 		D1D0059698F5E6DE3BBFE1BF /* Pods_An_nda_Indirim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC9E3F5A153959A1408119 /* Pods_An_nda_Indirim.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,8 +62,11 @@
 		0996FA641E96DA9A00E16A8A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		099C9EDB1EB27E9F00309DA5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDisplay.swift; sourceTree = "<group>"; };
+		09B9E1881EBA44490059EC09 /* OldShoppingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		09B9E18A1EBA46180059EC09 /* OldShopping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldShopping.swift; sourceTree = "<group>"; };
 		09D4BC0C1EA799610033283D /* DiscountsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountsListViewController.swift; sourceTree = "<group>"; };
 		09D4BC0E1EA79AFB0033283D /* DiscountListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountListTableViewCell.swift; sourceTree = "<group>"; };
+		09EFAFC01EC106D2006389C8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1B8BA47FE05CA255D72ECA61 /* Pods-Anında Indirim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anında Indirim.release.xcconfig"; path = "Pods/Target Support Files/Pods-Anında Indirim/Pods-Anında Indirim.release.xcconfig"; sourceTree = "<group>"; };
 		4B19CE8D4A627BB949835ECA /* Pods-Anında Indirim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anında Indirim.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Anında Indirim/Pods-Anında Indirim.debug.xcconfig"; sourceTree = "<group>"; };
 		52FC9E3F5A153959A1408119 /* Pods_An_nda_Indirim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_An_nda_Indirim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +126,7 @@
 				096D6ACE1E84676A0086D479 /* Utils */,
 				095721BA1E793ED30064C647 /* UI */,
 				092277591E0041B40058232E /* AppDelegate.swift */,
+				09EFAFC01EC106D2006389C8 /* MapViewController.swift */,
 				0922775B1E0041B40058232E /* ViewController.swift */,
 				0922775D1E0041B40058232E /* Main.storyboard */,
 				09341F011E8138A7000B4C65 /* RegisterViewController.swift */,
@@ -130,6 +137,7 @@
 				092277601E0041B40058232E /* An_nda_Indirim.xcdatamodeld */,
 				096D65731E787E8100C627AB /* colors.swift */,
 				09D4BC0C1EA799610033283D /* DiscountsListViewController.swift */,
+				09B9E1881EBA44490059EC09 /* OldShoppingTableViewCell.swift */,
 				09285F4A1E9AAB5A005A3CBC /* MyProfileViewController.swift */,
 				09D4BC0E1EA79AFB0033283D /* DiscountListTableViewCell.swift */,
 			);
@@ -172,6 +180,7 @@
 				09202C1F1EA6A26900CA36D1 /* Shop.swift */,
 				09202C211EA6A66E00CA36D1 /* Discount.swift */,
 				09A39D241EB12F9B00B7C9CA /* SaleDisplay.swift */,
+				09B9E18A1EBA46180059EC09 /* OldShopping.swift */,
 			);
 			name = modal;
 			sourceTree = "<group>";
@@ -344,7 +353,9 @@
 				09D4BC0F1EA79AFB0033283D /* DiscountListTableViewCell.swift in Sources */,
 				09A39D251EB12F9B00B7C9CA /* SaleDisplay.swift in Sources */,
 				090C3D091E7B100F00230382 /* labels.swift in Sources */,
+				09EFAFC11EC106D2006389C8 /* MapViewController.swift in Sources */,
 				0904984D1E79E1F7003AA967 /* textField.swift in Sources */,
+				09B9E18B1EBA46180059EC09 /* OldShopping.swift in Sources */,
 				096D6AD01E84678B0086D479 /* Utils.swift in Sources */,
 				0996FA621E96C91100E16A8A /* ImageTextField.swift in Sources */,
 				0904984A1E79DE37003AA967 /* textButton.swift in Sources */,
@@ -352,6 +363,7 @@
 				0922775C1E0041B40058232E /* ViewController.swift in Sources */,
 				09D4BC0D1EA799610033283D /* DiscountsListViewController.swift in Sources */,
 				0922775A1E0041B40058232E /* AppDelegate.swift in Sources */,
+				09B9E1891EBA44490059EC09 /* OldShoppingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
