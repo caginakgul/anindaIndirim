@@ -417,7 +417,7 @@
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="955.77211394302856"/>
         </scene>
-        <!--İndirimler-->
+        <!--Discounts List View Controller-->
         <scene sceneID="ANe-Dq-NnU">
             <objects>
                 <viewController id="2v6-Vy-rql" customClass="DiscountsListViewController" customModule="Anında_Indirim" customModuleProvider="target" sceneMemberID="viewController">
@@ -430,7 +430,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AW9-e3-Mhp">
-                                <rect key="frame" x="0.0" y="81" width="375" height="537"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="79" id="Ulo-GG-66A" customClass="DiscountListTableViewCell" customModule="Anında_Indirim" customModuleProvider="target">
@@ -480,7 +480,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fırsatlar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXc-Xi-mih">
-                                <rect key="frame" x="133" y="40" width="141" height="21"/>
+                                <rect key="frame" x="133" y="84" width="141" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Dwa-hz-BPc"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Jn5-lI-zej"/>
@@ -490,7 +490,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhB-S4-MiV">
-                                <rect key="frame" x="287" y="50" width="42" height="30"/>
+                                <rect key="frame" x="287" y="94" width="42" height="30"/>
                                 <state key="normal" title="Harita"/>
                             </button>
                         </subviews>
@@ -510,7 +510,7 @@
                             <constraint firstItem="TXc-Xi-mih" firstAttribute="top" secondItem="Jt4-vQ-MfH" secondAttribute="bottom" constant="20" id="zff-qL-UeL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="İndirimler" image="Search-Money_30px" id="4ev-Do-udZ"/>
+                    <navigationItem key="navigationItem" id="Eb1-8F-qOh"/>
                     <connections>
                         <outlet property="btnMap" destination="FhB-S4-MiV" id="bx7-Dg-DJv"/>
                         <outlet property="tableVDiscountList" destination="AW9-e3-Mhp" id="fPy-Ud-Mxv"/>
@@ -519,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJl-Wg-EgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="1747.3763118440781"/>
+            <point key="canvasLocation" x="992.79999999999995" y="1747.3763118440781"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="J8m-My-iZt">
@@ -551,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyI-Ik-6CW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="838" y="1747"/>
+            <point key="canvasLocation" x="1776.8" y="1746.4767616191905"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6hA-3m-dRx">
@@ -565,12 +565,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="SEL-5t-AoF" kind="relationship" relationship="viewControllers" id="Mzd-EB-szS"/>
-                        <segue destination="2v6-Vy-rql" kind="relationship" relationship="viewControllers" id="Sw8-QH-h6O"/>
+                        <segue destination="DfU-dt-kim" kind="relationship" relationship="viewControllers" id="Sw8-QH-h6O"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9f-MB-fGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1084" y="1219.3403298350825"/>
+        </scene>
+        <!--İndirimler-->
+        <scene sceneID="MMG-LO-3aP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DfU-dt-kim" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="İndirimler" image="Search-Money_30px" id="4ev-Do-udZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1LG-nX-0wR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2v6-Vy-rql" kind="relationship" relationship="rootViewController" id="i4t-7B-txX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hg6-N7-Cmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="1747.3763118440781"/>
         </scene>
     </scenes>
     <resources>
