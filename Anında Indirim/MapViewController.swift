@@ -12,6 +12,9 @@ import MapKit
 class MapViewController: UIViewController,MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var btGetCode: UIButton!
+    @IBOutlet weak var ivQr: UIImageView!
+    var qrcodeImage: CIImage!
     
     var sourceLocation:CLLocationCoordinate2D!
     var destinationLocation:CLLocationCoordinate2D!
@@ -22,7 +25,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
 
         self.mapView.delegate = self
         
-        
+        btGetCode.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
 
         
         // 3.
@@ -94,6 +97,38 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func pressButton(button: UIButton) {
+        if qrcodeImage == nil {
+            
+            let data = "abcdefghijkl".data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+            
+            let filter = CIFilter(name: "CIQRCodeGenerator")
+            
+            filter?.setValue(data, forKey: "inputMessage")
+            filter?.setValue("Q", forKey: "inputCorrectionLevel")
+            
+            qrcodeImage = filter?.outputImage
+            displayQRCodeImage()
+        }
+        else{
+            ivQr.image = nil
+            qrcodeImage = nil
+        }
+        
+    }
+    
+    func displayQRCodeImage() {
+        let scaleX = ivQr.frame.size.width / qrcodeImage.extent.size.width
+        let scaleY = ivQr.frame.size.height / qrcodeImage.extent.size.height
+        
+        let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+        
+     //   ivQr.image = UIImage.init(CIImage: transformedImage)
+    }
+    
+    
     
     
     func openMapForPlace() {

@@ -9,4 +9,5 @@
 import Foundation
 class OldShopping{
     var product : String!
+    var time : String!
 }

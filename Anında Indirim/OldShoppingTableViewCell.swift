@@ -12,6 +12,7 @@ class OldShoppingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblProduct: UILabel!
     
+    @IBOutlet weak var lblDate: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

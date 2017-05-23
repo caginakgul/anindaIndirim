@@ -22,5 +22,4 @@ class labels: UILabel {
           self.textColor = clrLabel
           self.font = self.font.withSize(14)
     }
-
 }

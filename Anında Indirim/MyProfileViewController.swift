@@ -34,6 +34,9 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
         
         ref = FIRDatabase.database().reference()
         
+        //seperatorleri ortadan kaldırmak için
+        self.tableOldShopping.tableFooterView = UIView()
+        
         getUserInfoFirebase()
         readOldShoppingFromDB()
     }
@@ -52,7 +55,6 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
     func getUserInfoFirebase()
     {
         let userMailStr=UserDefaults.standard.string(forKey: userEmailKey)
-        print("MailsdfsdfsdLog:"+userMailStr!)
         self.lblUserName.text = userMailStr
         self.ivUserPic.image=UIImage(named: "Mail_24px")
         
@@ -109,6 +111,8 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
         let shopping = self.oldShoppingArray[indexPath.row] as! OldShopping
         
         cell.lblProduct.text = shopping.product
+        cell.lblDate.text = shopping.time
+
         
         return cell
     }
@@ -117,33 +121,37 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
     
     func readOldShoppingFromDB()
     {
-        
+    
         // arrayliste eklenecek olan obje ayarlanıyor
-        let userid = UserDefaults.standard.string(forKey: userIdKey)!
-   
-        ref?.child("shopping").child(userid).observe(.value, with: { (snapshot) in
-                for rest in snapshot.children.allObjects as! [FIRDataSnapshot]
-                {
-                    let objModel=OldShopping()
-                    if let value = rest.value as? NSDictionary
+        if let userid = UserDefaults.standard.string(forKey: userIdKey){
+            ref?.child("shopping").child(userid).observe(.value, with: { (snapshot) in
+                    for rest in snapshot.children.allObjects as! [FIRDataSnapshot]
                     {
-                        //objModel.product=value["product"] as? String ?? ""
+                        let objModel=OldShopping()
+                        if let value = rest.value as? NSDictionary
+                        {
+                            //objModel.product=value["product"] as? String ?? ""
+                            
+                            guard let product_name = value.object(forKey: "product") else{
+                                return
+                            }
+                            guard let time = value.object(forKey: "time") else{
+                                return
+                            }
                         
-                        guard let product_name = value.object(forKey: "product") else{
-                            return
+                            
+                            objModel.product = product_name as! String
+                            objModel.time = time as! String
+                            
+                            //self.oldShoppingArray.append(objModel)
+                            self.oldShoppingArray.add(objModel)
                         }
-                        print(product_name)
-                        
-                        objModel.product = product_name as! String
-                        
-                        //self.oldShoppingArray.append(objModel)
-                        self.oldShoppingArray.add(objModel)
                     }
-                }
-            self.tableOldShopping.dataSource=self
-            self.tableOldShopping.delegate = self
-            self.tableOldShopping.reloadData()
-        })
+                self.tableOldShopping.dataSource=self
+                self.tableOldShopping.delegate = self
+                self.tableOldShopping.reloadData()
+            })
+        }
     }
     
     func buttonRound()

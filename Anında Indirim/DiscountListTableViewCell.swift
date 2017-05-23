@@ -14,6 +14,7 @@ class DiscountListTableViewCell: UITableViewCell {
     @IBOutlet weak var lblProductName: UILabel!
     @IBOutlet weak var lblOldPrice: labels!
     @IBOutlet weak var lblNewPrice: labels!
+    @IBOutlet weak var ivCategory: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

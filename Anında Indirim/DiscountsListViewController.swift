@@ -9,10 +9,10 @@
 import UIKit
 import Firebase
 import CoreLocation
+import QuartzCore
 
 class DiscountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate {
     
-    @IBOutlet weak var btnMap: UIButton!
     
     //to read data from db
     var ref: FIRDatabaseReference!
@@ -51,7 +51,7 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
         readSalesFromDB()
         
         self.tableVDiscountList.tableFooterView = UIView()
-        self.btnMap.addTarget(self, action: #selector(self.pressButton), for: .touchUpInside)
+      //  self.btnMap.addTarget(self, action: #selector(self.pressButton), for: .touchUpInside)
       /*  //map button
         //button click event
         btnMap.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
@@ -83,14 +83,43 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
         //veriler listeye işleniyor. dummydata mağaza adı
         
         cell.labelDummyData.text = self.saleArray[indexPath.row].name
+        
+            //.textContainerInset = UIEdgeInsetsMake(10, 0, 10, 0);
+        
         cell.lblProductName.text=self.saleArray[indexPath.row].product
-        cell.lblOldPrice.text=self.saleArray[indexPath.row].product_price_old
+        //cell.lblOldPrice.text=self.saleArray[indexPath.row].product_price_old
+        let category=self.saleArray[indexPath.row].category
+        
+        if category == "clothing"
+        {
+            cell.ivCategory.image = UIImage(named: "clothing")
+        }
+        else if category == "food_drink"
+        {
+            cell.ivCategory.image = UIImage(named: "foodanddrink")
+        }
+        else{
+            cell.ivCategory.image = UIImage(named: "Cart-1_30px")
+        }
+        //cell.lblNewPrice.layer.borderWidth = 2.0
+        //cell.lblNewPrice.layer.cornerRadius = 8
+        //cell.lblNewPrice.layer.borderColor = clrButtonGreen.cgColor
+            //UIColor.green.cgColor
+        
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.saleArray[indexPath.row].product_price_old)
+        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+        
+        cell.lblOldPrice.attributedText = attributeString
         
         let updatedPrice=Utils.sharedInstance.calculateUpdatedPrice(saleRate: self.saleArray[indexPath.row].sale_rate
             , oldPrice: self.saleArray[indexPath.row].product_price_old)
         cell.lblNewPrice.text=updatedPrice
                 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 79
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,13 +159,7 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 if let value = rest.value as? NSDictionary
                 {
-                    var objModel2 = SaleDisplay()
-                    objModel2.name = value["name"] as? String ?? ""
-                    objModel2.city = value["city"] as? String ?? ""
-                    objModel2.lng = value["lng"] as? String ?? ""
-                    objModel2.lat = value["lat"] as? String ?? ""
-                    objModel2.category = value["category"] as? String ?? ""
-                    objModel2.id = value["id"] as? Int ?? 0
+
                     
                     
                     //lc waikikinin içindeki discountlara ulaşmaya çalışıyorsun
@@ -154,6 +177,15 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                                 discountObj.product = product
                                 discountObj.product_price_old = product_price_old
                                 discountObj.begin_time = begin_time
+                                
+                                var objModel2 = SaleDisplay()
+                                objModel2.name = value["name"] as? String ?? ""
+                                objModel2.city = value["city"] as? String ?? ""
+                                objModel2.lng = value["lng"] as? String ?? ""
+                                objModel2.lat = value["lat"] as? String ?? ""
+                                objModel2.category = value["category"] as? String ?? ""
+                                objModel2.id = value["id"] as? Int ?? 0
+                                objModel2.category=value["category"] as? String ?? ""
                                 
                                 objModel2.sale_rate = sale_rate
                                 objModel2.product = product
