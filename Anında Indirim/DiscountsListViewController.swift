@@ -133,7 +133,7 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
         self.sourceLocation = CLLocationCoordinate2D(latitude: self.userLat, longitude: self.userLng)
         self.destinationLocation = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         
-        self.performSegue(withIdentifier: "segueToMap", sender: nil)
+        self.performSegue(withIdentifier: "segueToMap", sender: display)
 
         //cell.backgroundColor = UIColor.clear
         print("girdi","girmedi")
@@ -141,8 +141,12 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToMap"{
+            
+            let display = sender as! SaleDisplay
+            
             let vc = segue.destination as! MapViewController
             
+            vc.display = display
             vc.sourceLocation = self.sourceLocation
             vc.destinationLocation = self.destinationLocation
         }

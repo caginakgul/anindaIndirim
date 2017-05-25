@@ -90,7 +90,13 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
         try! FIRAuth.auth()!.signOut()
         Utils.sharedInstance.cleanSession()
         
-         self.performSegue(withIdentifier: "segueLogout", sender: self) 
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "segueLogout", sender: nil)
+            
+            //let vc = self.storyboard?.instantiateViewController(withIdentifier: "navMain")
+            
+            //self.view.window?.rootViewController = vc
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,7 +123,13 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Geçmiş Siparişleriniz"
+    }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }    
     
     func readOldShoppingFromDB()
     {

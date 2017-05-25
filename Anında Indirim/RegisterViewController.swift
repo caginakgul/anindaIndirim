@@ -21,6 +21,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var tfPassReg: textField!
     @IBOutlet weak var tfPassAgainReg: textField!
     @IBOutlet weak var btRegister: roundButton!
+
  
     
     override func viewDidLoad() {
@@ -38,6 +39,8 @@ class RegisterViewController: UIViewController {
         //button click event
         btRegister.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
         self.view.addSubview(btRegister)
+        
+       
     }
 
     override func didReceiveMemoryWarning() {

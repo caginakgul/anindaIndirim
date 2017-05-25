@@ -10,8 +10,8 @@ import UIKit
 
 class roundButton: UIButton {
     @IBInspectable var cornerRadius:CGFloat = 15.0
-    @IBInspectable var bgColor:UIColor = clrButtonGreen
-    @IBInspectable var borderColor:UIColor = clrButtonGreen
+    @IBInspectable var bgColor:UIColor = UIColor(red:0.35, green:0.32, blue:0.86, alpha:1.0)
+    @IBInspectable var borderColor:UIColor = UIColor(red:0.35, green:0.32, blue:0.86, alpha:1.0)
 
     /*
     top side is editable by ui   */

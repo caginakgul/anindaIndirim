@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import Firebase
+import FirebaseDatabase
 
 class MapViewController: UIViewController,MKMapViewDelegate {
 
@@ -16,16 +18,20 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var ivQr: UIImageView!
     var qrcodeImage: CIImage!
     
+    var display : SaleDisplay!
+     var ref: FIRDatabaseReference!
+    
     var sourceLocation:CLLocationCoordinate2D!
     var destinationLocation:CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //openMapForPlace()
-
+        ref = FIRDatabase.database().reference()
+        
         self.mapView.delegate = self
         
-        btGetCode.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
+        btGetCode.addTarget(self, action: #selector(self.pressButton), for: .touchUpInside)
 
         
         // 3.
@@ -38,7 +44,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         
         // 5.
         let sourceAnnotation = MKPointAnnotation()
-        sourceAnnotation.title = "Times Square"
+        sourceAnnotation.title = "Konumunuz"
         
         if let location = sourcePlacemark.location {
             sourceAnnotation.coordinate = location.coordinate
@@ -46,7 +52,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         
         
         let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = "Empire State Building"
+        destinationAnnotation.title = self.display.name
         
         if let location = destinationPlacemark.location {
             destinationAnnotation.coordinate = location.coordinate
@@ -100,12 +106,12 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     
     
     func pressButton(button: UIButton) {
+        
+        //qr kod yaratma işlemleri
         if qrcodeImage == nil {
             
-            let data = "abcdefghijkl".data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
-            
+            let data = self.display.product.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
             let filter = CIFilter(name: "CIQRCodeGenerator")
-            
             filter?.setValue(data, forKey: "inputMessage")
             filter?.setValue("Q", forKey: "inputCorrectionLevel")
             
@@ -117,6 +123,9 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             qrcodeImage = nil
         }
         
+        //firebase'e ekleme
+        addToFirebase()
+        
     }
     
     func displayQRCodeImage() {
@@ -125,7 +134,22 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         
         let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
         
-     //   ivQr.image = UIImage.init(CIImage: transformedImage)
+        let image = UIImage(ciImage: transformedImage)
+        
+        ivQr.contentMode = .scaleAspectFit
+        ivQr.image = image;
+    }
+    
+    func addToFirebase()
+    {
+        
+        let post:[String : AnyObject] = [
+            "old_price": self.display.product_price_old as AnyObject,
+            "product":self.display.product as AnyObject,
+            "sale_rate":self.display.sale_rate as AnyObject,
+            "time":"26-05-2017" as AnyObject
+        ]
+        self.ref.child("shopping").child(UserDefaults.standard.string(forKey: userIdKey)!).childByAutoId().setValue(post)
     }
     
     

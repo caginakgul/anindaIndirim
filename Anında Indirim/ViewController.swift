@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
-    @IBOutlet weak var btLoginMail: UIButton!
+    @IBOutlet weak var btLoginMail: roundButton!
     @IBOutlet weak var btConnectFace: roundButton!
     @IBOutlet weak var btToRegister: textButton!
   
@@ -42,9 +42,9 @@ class ViewController: UIViewController {
         Utils.sharedInstance.iconTextField(textField: tfPassword,picName:"Open-Lock_24px")
         
         //login click event
-        btLoginMail.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
+        btLoginMail.addTarget(self, action: #selector(self.pressButton), for: .touchUpInside)
         btConnectFace.addTarget(self, action: #selector(self.fbLogin), for: .touchUpInside)
-        btToRegister.addTarget(self, action: #selector(self.pressButtonToRegister(button:)), for: .touchUpInside)
+        btToRegister.addTarget(self, action: #selector(self.pressButtonToRegister), for: .touchUpInside)
         
         //force crash sample Crashlytics
         /*  let button = UIButton(type: .roundedRect)
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func pressButton(button: UIButton) {
+    func pressButton(button: roundButton) {
         checkFieldsLogin()
     }
 
@@ -148,7 +148,7 @@ class ViewController: UIViewController {
                 }
                 else
                 {     //email is not valid
-                    Utils.sharedInstance.printAlert(titlePrm: formAlertTitleNiceTry, message: invalidEmail, context: self)
+                    //Utils.sharedInstance.printAlert(titlePrm: formAlertTitleNiceTry, message: invalidEmail, context: self)
                 }
         }
     }

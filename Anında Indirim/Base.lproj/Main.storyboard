@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3fZ-Ib-nTM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Anında_Indirim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Anında_Indirim" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tfEmail" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iep-dg-7rc" customClass="textField" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="24" y="193" width="327" height="40"/>
+                                <rect key="frame" x="24" y="237" width="327" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1Dw-r5-NiC"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tfPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7NR-TQ-zWD" customClass="textField" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="20" y="313" width="335" height="40"/>
+                                <rect key="frame" x="20" y="357" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XiV-xi-EeV"/>
                                 </constraints>
@@ -50,7 +50,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblAppName" text="Anında İndirim" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lm-oB-2Sa">
-                                <rect key="frame" x="20" y="40" width="335" height="41"/>
+                                <rect key="frame" x="20" y="84" width="335" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="2n4-n6-0VM"/>
                                 </constraints>
@@ -58,20 +58,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btLogin" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6F-W9-4Y0" customClass="roundButton" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="30" y="386" width="315" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6F-W9-4Y0" customClass="roundButton" customModule="Anında_Indirim" customModuleProvider="target">
+                                <rect key="frame" x="30" y="430" width="315" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="89B-CR-06t"/>
+                                    <constraint firstAttribute="height" constant="40" id="89B-CR-06t"/>
                                 </constraints>
                                 <state key="normal" title="Giriş Yap"/>
-                                <connections>
-                                    <segue destination="lI1-sK-jEM" kind="showDetail" identifier="loggedInEmail" id="ooh-R9-rMf"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btConnectFb" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llv-F1-68J" customClass="roundButton" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="30" y="448" width="315" height="30"/>
+                                <rect key="frame" x="30" y="502" width="315" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9Ch-P1-J17"/>
+                                    <constraint firstAttribute="height" constant="40" id="9Ch-P1-J17"/>
                                 </constraints>
                                 <state key="normal" title="Facebook ile Bağlan"/>
                                 <userDefinedRuntimeAttributes>
@@ -83,34 +80,31 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblEmail" text="E-Posta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="733-VE-L2X" customClass="labels" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="35" y="164" width="57.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblEmail" text="E-Posta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="733-VE-L2X">
+                                <rect key="frame" x="35" y="208" width="57.5" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19.5" id="0Pk-o1-eed"/>
                                     <constraint firstAttribute="width" constant="57.5" id="2Os-Mt-WGa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.28235294119999998" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="toRegisterButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqg-7s-4cG" customClass="textButton" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="30" y="529" width="315" height="30"/>
+                                <rect key="frame" x="30" y="593" width="315" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1Pw-81-6bU"/>
+                                    <constraint firstAttribute="height" constant="40" id="1Pw-81-6bU"/>
                                 </constraints>
                                 <state key="normal" title="Hesabın yok mu? Kayıt Ol"/>
-                                <connections>
-                                    <segue destination="u31-nU-Zqu" kind="show" identifier="segueToRegister" id="GZF-kX-H2W"/>
-                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblPassword" text="Şifre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0V-7d-1yT" customClass="labels" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="35" y="285" width="33.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblPassword" text="Şifre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0V-7d-1yT">
+                                <rect key="frame" x="35" y="329" width="33.5" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33.5" id="JYX-iP-8si"/>
                                     <constraint firstAttribute="height" constant="19.5" id="Lx3-G9-MI5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.80392156862745101" green="0.28235294117647058" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -141,19 +135,21 @@
                             <constraint firstItem="Iep-dg-7rc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="tjH-Oi-bg6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="k3N-lH-nCp"/>
                     <connections>
                         <outlet property="btConnectFace" destination="llv-F1-68J" id="1tc-Vm-GKb"/>
-                        <outlet property="btLoginMail" destination="G6F-W9-4Y0" id="mSt-vh-s1H"/>
+                        <outlet property="btLoginMail" destination="G6F-W9-4Y0" id="YFL-SJ-kKr"/>
                         <outlet property="btToRegister" destination="Bqg-7s-4cG" id="ivX-jo-d2G"/>
                         <outlet property="lblEmail" destination="733-VE-L2X" id="s9o-dh-D1F"/>
                         <outlet property="lblPass" destination="F0V-7d-1yT" id="h63-Gi-eoR"/>
                         <outlet property="tfEmail" destination="Iep-dg-7rc" id="IXj-9d-xqB"/>
                         <outlet property="tfPassword" destination="7NR-TQ-zWD" id="ofO-if-tz4"/>
+                        <segue destination="u31-nU-Zqu" kind="show" identifier="segueToRegister" id="Tl9-FO-ht4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279.19999999999999" y="-172.26386806596702"/>
+            <point key="canvasLocation" x="660" y="-172.26386806596702"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="EUP-g8-hAl">
@@ -168,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblAppNameRegistration" text="Anında İndirim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttu-eJ-GZA">
-                                <rect key="frame" x="20" y="40" width="335" height="42"/>
+                                <rect key="frame" x="20" y="84" width="335" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="sA7-YR-dYv"/>
                                 </constraints>
@@ -176,38 +172,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="tfEMailReg" text="E-Posta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9J-ip-Sxm" customClass="labels" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="50" y="118" width="61" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="tfEMailReg" text="E-Posta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9J-ip-Sxm">
+                                <rect key="frame" x="50" y="162" width="61" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="86G-R6-XOs"/>
                                     <constraint firstAttribute="height" constant="21" id="tVF-N7-29p"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.28235294119999998" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kullanıcı Adı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU1-Py-bAZ" customClass="labels" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="50" y="197" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kullanıcı Adı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU1-Py-bAZ">
+                                <rect key="frame" x="50" y="241" width="92" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="L5t-DK-3eB"/>
                                     <constraint firstAttribute="width" constant="92" id="Y3i-4V-Dmu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.28235294119999998" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="tfPasswordReg" text="Şifre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTO-DW-CWz" customClass="labels" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="50" y="276" width="36" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="tfPasswordReg" text="Şifre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTO-DW-CWz">
+                                <rect key="frame" x="50" y="320" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8zO-ue-3KB"/>
                                     <constraint firstAttribute="width" constant="36" id="fLe-f1-xl4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.28235294119999998" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-nw-3mA" customClass="textField" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="24" y="148" width="327" height="40"/>
+                                <rect key="frame" x="24" y="192" width="327" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7Zw-Kh-gMS"/>
                                 </constraints>
@@ -216,7 +212,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEf-Uv-Ejn" customClass="textField" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="24" y="227" width="327" height="40"/>
+                                <rect key="frame" x="24" y="271" width="327" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ptz-YE-NOx"/>
                                 </constraints>
@@ -225,7 +221,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIQ-jd-WOX" customClass="textField" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="24" y="306" width="327" height="40"/>
+                                <rect key="frame" x="24" y="350" width="327" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nOu-Ng-1d8"/>
                                 </constraints>
@@ -234,7 +230,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LKk-dz-2eo" customClass="textField" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="24" y="385" width="327" height="40"/>
+                                <rect key="frame" x="24" y="429" width="327" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Kv0-wv-v26"/>
                                 </constraints>
@@ -242,34 +238,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="tfPasswordAgainReg" text="Şifre Tekrar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC9-Ri-NAu" customClass="labels" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="50" y="355" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="tfPasswordAgainReg" text="Şifre Tekrar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC9-Ri-NAu">
+                                <rect key="frame" x="50" y="399" width="88" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="Qno-Cf-7cp"/>
                                     <constraint firstAttribute="height" constant="21" id="t6f-Ma-AHQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.28235294119999998" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWN-AG-9Ex" customClass="roundButton" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="100" y="465" width="174" height="30"/>
+                                <rect key="frame" x="100" y="509" width="174" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="yh3-Id-w9M"/>
+                                    <constraint firstAttribute="height" constant="40" id="yh3-Id-w9M"/>
                                 </constraints>
                                 <state key="normal" title="Kayıt Ol"/>
                                 <connections>
                                     <segue destination="lI1-sK-jEM" kind="show" identifier="segueRegisterToMain" id="hkw-H6-fVX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rif-Yv-O0l" customClass="textButton" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="100" y="532" width="174" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="NL4-3Q-D4A"/>
-                                </constraints>
-                                <state key="normal" title="Hesabın var mı? Giriş Yap"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="lm0-e3-RA0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -291,12 +277,10 @@
                             <constraint firstItem="Q9J-ip-Sxm" firstAttribute="top" secondItem="ttu-eJ-GZA" secondAttribute="bottom" constant="36" id="IFh-fS-ZqY"/>
                             <constraint firstItem="LKk-dz-2eo" firstAttribute="leading" secondItem="bTG-j4-s1C" secondAttribute="leading" constant="24" id="IGI-oP-i3f"/>
                             <constraint firstItem="JEf-Uv-Ejn" firstAttribute="leading" secondItem="bTG-j4-s1C" secondAttribute="leading" constant="24" id="K1S-cB-8Rj"/>
-                            <constraint firstItem="rif-Yv-O0l" firstAttribute="leading" secondItem="bTG-j4-s1C" secondAttribute="leading" constant="100" id="NPj-QV-GbV"/>
                             <constraint firstAttribute="trailing" secondItem="LKk-dz-2eo" secondAttribute="trailing" constant="24" id="OQR-K0-ciL"/>
                             <constraint firstItem="ogS-nw-3mA" firstAttribute="leading" secondItem="bTG-j4-s1C" secondAttribute="leading" constant="24" id="VBr-gD-CDQ"/>
                             <constraint firstItem="JU1-Py-bAZ" firstAttribute="top" secondItem="ogS-nw-3mA" secondAttribute="bottom" constant="9" id="Y35-IA-Pve"/>
                             <constraint firstAttribute="trailing" secondItem="JEf-Uv-Ejn" secondAttribute="trailing" constant="24" id="dPr-qS-2dB"/>
-                            <constraint firstAttribute="trailing" secondItem="rif-Yv-O0l" secondAttribute="trailing" constant="101" id="fNz-eN-IZb"/>
                             <constraint firstItem="RC9-Ri-NAu" firstAttribute="top" secondItem="RIQ-jd-WOX" secondAttribute="bottom" constant="9" id="giJ-oN-BoW"/>
                             <constraint firstItem="JEf-Uv-Ejn" firstAttribute="top" secondItem="JU1-Py-bAZ" secondAttribute="bottom" constant="9" id="hGJ-QJ-XJK"/>
                             <constraint firstItem="LKk-dz-2eo" firstAttribute="top" secondItem="RC9-Ri-NAu" secondAttribute="bottom" constant="9" id="juh-Zb-YG3"/>
@@ -315,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35x-Jp-gP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614" y="-172"/>
+            <point key="canvasLocation" x="1552.8" y="-172.26386806596702"/>
         </scene>
         <!--Profilim-->
         <scene sceneID="FT3-FW-Hb1">
@@ -342,37 +326,46 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableViewOldShopping" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="23" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="20i-Ku-xOe">
-                                <rect key="frame" x="0.0" y="266" width="375" height="294"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableViewOldShopping" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="20i-Ku-xOe">
+                                <rect key="frame" x="0.0" y="248" width="375" height="290"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="79" id="P47-dE-VTA" customClass="OldShoppingTableViewCell" customModule="Anında_Indirim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="79"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="P47-dE-VTA" customClass="OldShoppingTableViewCell" customModule="Anında_Indirim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P47-dE-VTA" id="BCo-ik-xWi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wE-VT-IRp">
-                                                    <rect key="frame" x="53" y="29" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wE-VT-IRp">
+                                                    <rect key="frame" x="319.5" y="21.5" width="35.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.75686274509999996" green="0.20784313730000001" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="lblShoppingProduct" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="len-gL-EVm">
-                                                    <rect key="frame" x="171" y="27" width="161" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblShoppingProduct" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="len-gL-EVm">
+                                                    <rect key="frame" x="20" y="20" width="39.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.54117647058823526" green="0.22745098039215686" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dt3-2y-v5U">
+                                                    <rect key="frame" x="0.0" y="59" width="375" height="1"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="p9K-Qg-Oyq"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="len-gL-EVm" firstAttribute="centerY" secondItem="4wE-VT-IRp" secondAttribute="centerY" id="9kk-hR-AWQ"/>
-                                                <constraint firstAttribute="bottom" secondItem="len-gL-EVm" secondAttribute="bottom" id="AmK-7T-E3A"/>
-                                                <constraint firstItem="len-gL-EVm" firstAttribute="leading" secondItem="BCo-ik-xWi" secondAttribute="leading" id="JEg-Pf-iCZ"/>
-                                                <constraint firstItem="len-gL-EVm" firstAttribute="top" secondItem="BCo-ik-xWi" secondAttribute="top" id="aQw-DY-URh"/>
-                                                <constraint firstAttribute="trailing" secondItem="len-gL-EVm" secondAttribute="trailing" id="fWp-gc-Nb3"/>
-                                                <constraint firstItem="4wE-VT-IRp" firstAttribute="leading" secondItem="len-gL-EVm" secondAttribute="leading" id="oCG-e1-Ky2"/>
+                                                <constraint firstItem="Dt3-2y-v5U" firstAttribute="leading" secondItem="BCo-ik-xWi" secondAttribute="leading" id="88C-Xx-MAg"/>
+                                                <constraint firstAttribute="trailing" secondItem="4wE-VT-IRp" secondAttribute="trailing" constant="20" id="IGC-uq-gR3"/>
+                                                <constraint firstAttribute="bottom" secondItem="Dt3-2y-v5U" secondAttribute="bottom" id="KL3-Oa-Zpr"/>
+                                                <constraint firstItem="len-gL-EVm" firstAttribute="leading" secondItem="BCo-ik-xWi" secondAttribute="leading" constant="20" id="W1d-ow-np6"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dt3-2y-v5U" secondAttribute="trailing" id="bcB-HC-efT"/>
+                                                <constraint firstItem="4wE-VT-IRp" firstAttribute="centerY" secondItem="BCo-ik-xWi" secondAttribute="centerY" id="frF-s7-9uK"/>
+                                                <constraint firstItem="len-gL-EVm" firstAttribute="centerY" secondItem="BCo-ik-xWi" secondAttribute="centerY" id="zzh-SM-gcj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -383,24 +376,28 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btnLogout" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YM3-CZ-mDq" customClass="roundButton" customModule="Anında_Indirim" customModuleProvider="target">
-                                <rect key="frame" x="20" y="580" width="335" height="28"/>
+                                <rect key="frame" x="20" y="558" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dYT-5B-rbw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="Çıkış"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="segueLogout" action="showViewController:sender:" id="BPd-fH-738"/>
+                                    <segue destination="3fZ-Ib-nTM" kind="showDetail" identifier="segueLogout" action="showViewController:sender:" id="BPd-fH-738"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rbG-mQ-6y5" firstAttribute="top" secondItem="YM3-CZ-mDq" secondAttribute="bottom" constant="10" id="0gf-KK-Xzk"/>
+                            <constraint firstItem="rbG-mQ-6y5" firstAttribute="top" secondItem="YM3-CZ-mDq" secondAttribute="bottom" constant="20" id="0gf-KK-Xzk"/>
                             <constraint firstItem="hl1-8y-lk7" firstAttribute="top" secondItem="RtN-tX-VK1" secondAttribute="bottom" constant="8" id="7f2-8I-feH"/>
                             <constraint firstItem="20i-Ku-xOe" firstAttribute="leading" secondItem="r1v-lC-AN8" secondAttribute="leading" id="8KX-hJ-IaK"/>
                             <constraint firstAttribute="trailing" secondItem="20i-Ku-xOe" secondAttribute="trailing" id="8Lh-kb-p59"/>
                             <constraint firstItem="RtN-tX-VK1" firstAttribute="top" secondItem="a4g-8w-Dsi" secondAttribute="bottom" constant="35" id="Ili-XL-Pco"/>
                             <constraint firstAttribute="trailing" secondItem="YM3-CZ-mDq" secondAttribute="trailing" constant="20" id="JI7-Pv-crV"/>
                             <constraint firstItem="YM3-CZ-mDq" firstAttribute="leading" secondItem="r1v-lC-AN8" secondAttribute="leading" constant="20" id="Ltt-Hj-zVp"/>
-                            <constraint firstItem="20i-Ku-xOe" firstAttribute="top" secondItem="hl1-8y-lk7" secondAttribute="bottom" constant="48.5" id="PCt-Ah-6df"/>
+                            <constraint firstItem="20i-Ku-xOe" firstAttribute="top" secondItem="hl1-8y-lk7" secondAttribute="bottom" constant="30" id="PCt-Ah-6df"/>
                             <constraint firstItem="YM3-CZ-mDq" firstAttribute="top" secondItem="20i-Ku-xOe" secondAttribute="bottom" constant="20" id="or4-eh-l3f"/>
                             <constraint firstItem="hl1-8y-lk7" firstAttribute="centerX" secondItem="20i-Ku-xOe" secondAttribute="centerX" id="p1w-7W-meW"/>
                             <constraint firstItem="hl1-8y-lk7" firstAttribute="centerX" secondItem="RtN-tX-VK1" secondAttribute="centerX" id="sLA-8n-pjH"/>
@@ -543,10 +540,6 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F49-mY-dH4">
-                                <rect key="frame" x="67" y="469" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctK-Ed-fwL">
                                 <rect key="frame" x="117" y="407" width="140" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -554,6 +547,10 @@
                                     <color key="titleColor" red="0.75686274509999996" green="0.20784313730000001" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F49-mY-dH4">
+                                <rect key="frame" x="123" y="482" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -646,14 +643,28 @@
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="955.77211394302856"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4j2-Om-ONC">
+            <objects>
+                <navigationController storyboardIdentifier="navMain" automaticallyAdjustsScrollViewInsets="NO" id="3fZ-Ib-nTM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nW4-4V-o3f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Nh3-T8-FMh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfY-Gs-7bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279.19999999999999" y="-172.26386806596702"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Open-Lock_24px" width="17" height="24"/>
         <image name="Search-Money_30px" width="31" height="31"/>
         <image name="User_24px" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="BPd-fH-738"/>
-        <segue reference="ooh-R9-rMf"/>
-    </inferredMetricsTieBreakers>
 </document>
