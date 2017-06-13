@@ -200,14 +200,14 @@ class DiscountsListViewController: UIViewController, UITableViewDelegate, UITabl
                                 //kampanya hala geçerli mi? yayın tarihinden itibaren 4 saat oldu mu?
                                 
                                 let btwHours = Utils.sharedInstance.hours(startDate: Utils.sharedInstance.getCurrentTime(), endDate: Utils.sharedInstance.convertToTime(timeString: begin_time))
-                                
+                                print("hour", btwHours)
                                 //ilan son 4 saat içinde yayınlanmışsa display edilecekler listesine ekle
-                                if btwHours<5
+                                if btwHours<65
                                 {
                                     //eğer dükkan ile kullanıcı arasında 1km'den az mesafe var ise listeye ekle
                                     
                                     let distanceInMeter = Utils.sharedInstance.calcDistanceBtwUserAndShop(userLat: self.userLat, userLong: self.userLng, shopLat: objModel2.lat, shopLng: objModel2.lng)
-                                    if distanceInMeter < 1001
+                                    if distanceInMeter < 2001
                                     {
                                         discountArray.append(discountObj)
                             

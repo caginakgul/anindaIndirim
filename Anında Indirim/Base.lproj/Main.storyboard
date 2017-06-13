@@ -145,6 +145,7 @@
                         <outlet property="tfEmail" destination="Iep-dg-7rc" id="IXj-9d-xqB"/>
                         <outlet property="tfPassword" destination="7NR-TQ-zWD" id="ofO-if-tz4"/>
                         <segue destination="u31-nU-Zqu" kind="show" identifier="segueToRegister" id="Tl9-FO-ht4"/>
+                        <segue destination="lI1-sK-jEM" kind="presentation" identifier="loggedInEmail" id="sBN-7F-umF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -405,7 +406,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profilim" id="bVG-af-zQ5"/>
                     <connections>
-                        <outlet property="btnLogout" destination="YM3-CZ-mDq" id="fPu-WP-Q35"/>
+                        <outlet property="btnLogout" destination="YM3-CZ-mDq" id="gmA-HM-fQS"/>
                         <outlet property="ivUserPic" destination="RtN-tX-VK1" id="peo-ma-Myt"/>
                         <outlet property="lblUserName" destination="hl1-8y-lk7" id="qVl-k2-b0Z"/>
                         <outlet property="tableOldShopping" destination="20i-Ku-xOe" id="PXH-39-L7W"/>
@@ -667,4 +668,7 @@
         <image name="Search-Money_30px" width="31" height="31"/>
         <image name="User_24px" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sBN-7F-umF"/>
+    </inferredMetricsTieBreakers>
 </document>

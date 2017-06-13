@@ -21,7 +21,7 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
     @IBOutlet weak var ivUserPic: UIImageView!
     @IBOutlet weak var lblUserName: labels!
     
-    @IBOutlet weak var btnLogout: UIButton!
+    @IBOutlet weak var btnLogout: roundButton!
     @IBOutlet weak var tableOldShopping: UITableView!
     //var oldShoppingArray = [OldShopping]()
     var oldShoppingArray = NSMutableArray()
@@ -30,7 +30,7 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         //logout button click event delete it later
-        btnLogout.addTarget(self, action: #selector(self.pressButton(button:)), for: .touchUpInside)
+        btnLogout.addTarget(self, action: #selector(self.pressButton), for: .touchUpInside)
         
         ref = FIRDatabase.database().reference()
         
@@ -48,10 +48,16 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // No need for semicolon
+        //self.navigationController?.navigationItem.hidesBackButton=true
         
+        self.navigationController?.navigationItem.leftBarButtonItems = nil
+        self.navigationController?.navigationItem.leftItemsSupplementBackButton = false
+        self.navigationController?.navigationItem.backBarButtonItem = nil
         
+        self.tabBarController?.navigationItem.leftBarButtonItems = nil
+        self.tabBarController?.navigationItem.backBarButtonItem = nil
     }
-    
+
     func getUserInfoFirebase()
     {
         let userMailStr=UserDefaults.standard.string(forKey: userEmailKey)
@@ -85,7 +91,7 @@ class MyProfileViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
-    func pressButton(button: UIButton) {
+    func pressButton(button: roundButton) {
         //logout kill session firebase
         try! FIRAuth.auth()!.signOut()
         Utils.sharedInstance.cleanSession()
